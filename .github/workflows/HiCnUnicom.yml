@@ -31,4 +31,17 @@ jobs:
             do
               bash CnUnicom.sh ${u/,/ }
             done
+            
+        - name: ServerChan and MiPush 
+          env:
+            SCKEY: ${{ secrets.SCKEY }}
+            ALIAS:  ${{ secrets.ALIAS }}
+          run: |
+            str="%E8%81%94%E9%80%9A%E6%8E%8C%E5%8E%85%E7%AD%BE%E5%88%B0%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%88%90"  #联通掌厅签到任务完成
+            url="https://sc.ftqq.com/${SCKEY}.send"
+            curl -L -s $url -X POST -d "text=${str}" -H "Content-type: application/x-www-form-urlencoded" 
+            #拓展，消息推送到手机，手机安装https://www.coolapk.com/apk/top.tdtt.news
+            mipush="alias=${ALIAS}&title=${str}"
+            curl -L -s "http://tdtt.top" -X POST -d $mipush -H "Content-type: application/x-www-form-urlencoded" 
+
 

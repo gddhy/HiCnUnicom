@@ -16,6 +16,12 @@
 侧栏点击 `Secrets`  
 点击 `New secret`  
 
+
+增加ServerChan 和 MiPush   
+添加"SCKEY""ALIAS"  
+
+
+
 依次添加 `USER` 和 `APPID`  
 值对应为你的 `手机号码,服务密码` 和 `联通app抓包的appd值`。 
 
